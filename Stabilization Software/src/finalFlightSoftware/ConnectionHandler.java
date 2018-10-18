@@ -29,7 +29,7 @@ public class ConnectionHandler implements Runnable {
 			System.out.println("Got from client ... " + clientSentence);
 
 			//testing output, to remove in production code
-			outToClient.writeBytes("sugoi, we recieved it \n");
+			outToClient.writeBytes("Awesome, we received it \n");
 
 		} catch (Exception e) {
 			System.out.println("Something went wrong...");
