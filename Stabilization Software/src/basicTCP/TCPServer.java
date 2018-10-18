@@ -11,12 +11,14 @@ class TCPServer {
 
 		while (true) {
 			try {
+				// wait for connection
 				welcomeSocket = new ServerSocket(6789);
 				System.out.println("accepting call ...");
 				connectionSocket = welcomeSocket.accept();
 
 				System.out.println("connected ...");
 
+				// now connected and ready to roll 
 				BufferedReader inFromClient = new BufferedReader(
 						new InputStreamReader(connectionSocket.getInputStream()));
 				DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());
