@@ -13,8 +13,8 @@ public class StabilizationOnly {
 	private static int MOTOR_PIN_B =5;
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		double biasz = 0; //measurement bias
+		// TODO Auto-generated methodstub
+		double biasz = 0;      //measurement bias
 
 		//Get handle to GPIO controller
 		final GpioController gpio = GpioFactory.getInstance();
