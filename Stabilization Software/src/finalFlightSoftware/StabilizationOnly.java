@@ -91,7 +91,7 @@ public class StabilizationOnly {
 			System.out.println("Message received from the server: " + sentence);
 		}
 		catch (IOException e) {
-			// TODO Auto-generated catch block
+			// TODO Auto-generated catch blockkk
 			e.printStackTrace();
 		}
 		data = Double.parseDouble(sentence);
