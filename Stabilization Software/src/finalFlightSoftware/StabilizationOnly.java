@@ -1,3 +1,8 @@
+package finalFlightSoftware;
+import java.io.*;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.util.Scanner;
 
 import com.pi4j.io.gpio.GpioController;
 import com.pi4j.io.gpio.GpioFactory;
@@ -54,6 +59,43 @@ public class StabilizationOnly {
 		Gpio.delay(20);
 
 		}
+	}
+	
+	public double SensorConnect() {
+		double data = 0;
+		
+		Socket sensorSocket;
+		String sentence = "";
+		
+		//Scanner inputFromSensor = new Scanner(System.in);
+		InetAddress addr;
+		try {
+			addr = InetAddress.getByName("localhost");
+			sensorSocket = new Socket(addr, 32118);
+
+			//send the message to sensor 
+			OutputStream outToSensor = sensorSocket.getOutputStream();
+			OutputStreamWriter outWriter = new OutputStreamWriter(outToSensor);
+			BufferedWriter bw = new BufferedWriter(outWriter);
+			
+			String sendMessage = "s";
+			bw.write(sendMessage);
+			bw.flush();
+			System.out.println("Message sent to the sensor: " + sendMessage);
+			
+			//get the return message from the sensor
+			InputStream inFromSensor = sensorSocket.getInputStream();
+			InputStreamReader inReader = new InputStreamReader(inFromSensor);
+			BufferedReader br = new BufferedReader(inReader);
+			sentence = br.readLine();
+			System.out.println("Message received from the server: " + sentence);
+		}
+		catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		data = Double.parseDouble(sentence);
+		return data;
 	}
 
 }
