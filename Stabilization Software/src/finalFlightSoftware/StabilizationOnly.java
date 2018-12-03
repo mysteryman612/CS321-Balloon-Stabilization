@@ -58,7 +58,7 @@ public class StabilizationOnly {
 		}
 	}
 
-	private double sensorConnect() {
+	private static double sensorConnect() {
 		double data = 0;
 
 		Socket sensorSocket;
