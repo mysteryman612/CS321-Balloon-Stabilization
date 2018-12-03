@@ -61,7 +61,7 @@ public class StabilizationOnly {
 	private static double sensorConnect() {
 		double data = 0;
 
-		Socket sensorSocket;
+		Socket sensorSocket = null;
 		String sentence = "";
 
 		// Scanner inputFromSensor = new Scanner(System.in);
@@ -94,7 +94,12 @@ public class StabilizationOnly {
 			e.printStackTrace();
 		} finally {
 			if (sensorSocket != null) {
-				sensorSocket.close();
+				try {
+					sensorSocket.close();
+				} catch (IOException e) {
+					System.out.print("Couldnt close the socket");
+					e.printStackTrace();
+				}
 			}
 		}
 		try {

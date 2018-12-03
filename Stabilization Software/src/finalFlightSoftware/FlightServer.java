@@ -13,7 +13,6 @@ package finalFlightSoftware;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import finalFlightSoftware.ConnectionHandler;
 
 public class FlightServer {
 	public static void main(String[] args) {
